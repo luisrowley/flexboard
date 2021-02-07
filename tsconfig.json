@@ -17,6 +17,20 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "flex-lib": [
+        "dist/flex-lib"
+      ],
+      "flex-lib/*": [
+        "dist/flex-lib/*"
+      ],
+      "ngx-flexboard": [
+        "dist/ngx-flexboard"
+      ],
+      "ngx-flexboard/*": [
+        "dist/ngx-flexboard/*"
+      ]
+    }
   }
 }
