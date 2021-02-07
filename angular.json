@@ -3,41 +3,6 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "flex-lib": {
-      "projectType": "library",
-      "root": "projects/flex-lib",
-      "sourceRoot": "projects/flex-lib/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/flex-lib/tsconfig.lib.json",
-            "project": "projects/flex-lib/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/flex-lib/src/test.ts",
-            "tsConfig": "projects/flex-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/flex-lib/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/flex-lib/tsconfig.lib.json",
-              "projects/flex-lib/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "ngx-flexboard": {
       "projectType": "library",
       "root": "projects/ngx-flexboard",
@@ -186,5 +151,5 @@
         }
       }
     }},
-  "defaultProject": "flex-lib"
+  "defaultProject": "ngx-flexboard"
 }

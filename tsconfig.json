@@ -19,12 +19,6 @@
       "dom"
     ],
     "paths": {
-      "flex-lib": [
-        "dist/flex-lib"
-      ],
-      "flex-lib/*": [
-        "dist/flex-lib/*"
-      ],
       "ngx-flexboard": [
         "dist/ngx-flexboard"
       ],

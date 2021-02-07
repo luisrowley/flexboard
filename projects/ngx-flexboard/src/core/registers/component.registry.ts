@@ -8,7 +8,7 @@
  * Get a component by its string name by calling COMPONENTREGISTRY.getTypeFor('AnExampleComponent')
  * Or get it by its template name if your following general angular naming convention COMPONENTREGISTRY.getTypeFor('app-an-example')
  *
- * TODO: add the html template string without guessing like we are now?
+ * @todo: add the html template string without guessing like we are now?
  *     A class couuld be obtained by calling COMPONENTREGISTRY.getTypeFor('app-an-example')
 **/
 
@@ -42,10 +42,10 @@ class ComponentRegistry {
         this.registry.set(cls.name, cls);
     }
 
-    // registerTemplateString(cls: ComponentClass): void {
-    // 	let templateString = 'app-angular-component'; // how to get this from the ComponentClass reference?
-    // 	this.registry.set(templateString, cls);
-    // }
+    registerTemplateString(cls: ComponentClass): void {
+    	let templateString = 'app-angular-component'; // how to get this from the ComponentClass reference?
+    	this.registry.set(templateString, cls);
+    }
 
 }
 

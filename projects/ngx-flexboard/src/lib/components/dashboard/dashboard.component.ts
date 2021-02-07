@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ComponentFactoryResolver, ViewChildren, ViewContainerRef, QueryList, ViewChild, Compiler, TemplateRef, ComponentRef, AfterViewInit } from '@angular/core';
-import { DashboardLayout } from '../../models/dashboard-layout.model';
-import { COMPONENTREGISTRY } from '../../registers/component.registry';
+import { DashboardLayout } from '../../../core/models/dashboard-layout.model';
+import { COMPONENTREGISTRY } from '../../../core/registers/component.registry';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface TileItem {
