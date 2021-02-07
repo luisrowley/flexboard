@@ -13,12 +13,12 @@ export interface TileItem {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit, AfterViewInit {
+export class DashboardComponent /*implements OnInit, AfterViewInit*/ {
 
   /** 
    * @var _tiles | array para las celdas del grid
    * @todo En el futuro se implementará con servicio para carga dinámica
-   */
+   
   public _layout: DashboardLayout;
   public _tileItems = [ {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'pie', uuid: uuidv4()}},
                         {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'bar', uuid: uuidv4()}},
@@ -59,7 +59,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     console.log(this.tileItems);
 
     /*
-    this._tileItems.map((item) => item = {component: COMPONENTREGISTRY.getTypeFor(item.component), data: item.data})*/
+    this._tileItems.map((item) => item = {component: COMPONENTREGISTRY.getTypeFor(item.component), data: item.data})
 
     console.log(this._tileItems);
 
@@ -79,5 +79,5 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     componentRef.instance.mode = currentItem.data;
   
   }
-
+*/
 }

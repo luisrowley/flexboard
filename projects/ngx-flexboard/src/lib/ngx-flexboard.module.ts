@@ -6,6 +6,6 @@ import { NgxFlexboardComponent } from './ngx-flexboard.component';
   declarations: [NgxFlexboardComponent, DashboardComponent],
   imports: [
   ],
-  exports: [NgxFlexboardComponent]
+  exports: [NgxFlexboardComponent, DashboardComponent]
 })
 export class NgxFlexboardModule { }
