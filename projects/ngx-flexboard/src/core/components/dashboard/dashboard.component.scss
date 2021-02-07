@@ -1,0 +1,49 @@
+.main-title{
+    font-size: 26px;
+    font-weight: 500;
+    color: #525252;
+}
+
+.grid-tile{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.grid-tile .inner{
+    background-color: #ffffff;
+    height: 330px;
+    padding: 10px 10px 5px 10px;
+    border-radius: 10px;
+}
+
+.grid-tile .inner-nested{
+    background-color: #ffffff;
+    height: 90px;
+    padding: 10px 10px 5px 10px;
+    border-radius: 10px;
+}
+
+.grid-tile .inner .chart-container canvas
+{
+  display: flex; /*added*/
+  flex-direction: column; /*added*/
+}
+
+.grid-tile .inner-nested .chart-container canvas
+{
+  max-height: 50%;
+  display: flex; /*added*/
+  flex-direction: column; /*added*/
+}
+
+
+.main-block{
+    min-width: 100%;
+    padding: 15px 40px 15px 40px;
+    background-color: #cccccc; // #f2f2f2 in prod
+}
+
+mat-divider{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
