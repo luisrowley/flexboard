@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ComponentFactoryResolver, ViewChildren, ViewContainerRef, QueryList, ViewChild, Compiler, TemplateRef, ComponentRef, AfterViewInit } from '@angular/core';
-import { DashboardLayout } from '../../../core/models/dashboard-layout.model';
 import { v4 as uuidv4 } from 'uuid';
+import { DashboardLayout } from '../../models/dashboard-layout.model';
 import { COMPONENTREGISTRY } from './component.registry';
 
 export interface TileItem {
@@ -13,7 +13,7 @@ export interface TileItem {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent /*implements OnInit, AfterViewInit*/ {
+export class DashboardComponent implements OnInit, AfterViewInit {
 
   /** 
    * @var _tiles | array para las celdas del grid
