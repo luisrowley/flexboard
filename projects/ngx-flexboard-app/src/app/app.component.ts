@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngx-flexboard-app';
+
+  // dashboard conf
+  public layout = [];
 }

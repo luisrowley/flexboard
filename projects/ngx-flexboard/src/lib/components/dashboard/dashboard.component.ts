@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ComponentFactoryResolver, ViewChildren, ViewContainerRef, QueryList, ViewChild, Compiler, TemplateRef, ComponentRef, AfterViewInit } from '@angular/core';
 import { DashboardLayout } from '../../../core/models/dashboard-layout.model';
-import { COMPONENTREGISTRY } from '../../../core/registers/component.registry';
 import { v4 as uuidv4 } from 'uuid';
+import { COMPONENTREGISTRY } from './component.registry';
 
 export interface TileItem {
   component: any;
@@ -9,7 +9,7 @@ export interface TileItem {
 }
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'ngx-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
@@ -18,19 +18,20 @@ export class DashboardComponent /*implements OnInit, AfterViewInit*/ {
   /** 
    * @var _tiles | array para las celdas del grid
    * @todo En el futuro se implementará con servicio para carga dinámica
-   
+   */
+  
   public _layout: DashboardLayout;
   public _tileItems = [ {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'pie', uuid: uuidv4()}},
                         {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'bar', uuid: uuidv4()}},
                         {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'doughnut', uuid: uuidv4()}},
                         {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'lines', uuid: uuidv4()}},                        
-                        {component: COMPONENTREGISTRY.getTypeFor("TileComponent"), data: "item.data"},
-                        {component: COMPONENTREGISTRY.getTypeFor("TileComponent"), data: "item.data"},
-                        {component: COMPONENTREGISTRY.getTypeFor("TileComponent"), data: "item.data"},
-                        {component: COMPONENTREGISTRY.getTypeFor("TileComponent"), data: "item.data"},
-                        {component: COMPONENTREGISTRY.getTypeFor("ColorPickerComponent"), data: {}}
+                        {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'pie', uuid: uuidv4()}},
+                        {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'bar', uuid: uuidv4()}},
+                        {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'pie', uuid: uuidv4()}},
+                        {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'bar', uuid: uuidv4()}},
+                        {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'pie', uuid: uuidv4()}}
                       ];
-
+                      
   // selected layout option
   @Input() set layout(layout: DashboardLayout) {
     this._layout = layout;
@@ -57,10 +58,6 @@ export class DashboardComponent /*implements OnInit, AfterViewInit*/ {
         ))
     
     console.log(this.tileItems);
-
-    /*
-    this._tileItems.map((item) => item = {component: COMPONENTREGISTRY.getTypeFor(item.component), data: item.data})
-
     console.log(this._tileItems);
 
 
@@ -79,5 +76,5 @@ export class DashboardComponent /*implements OnInit, AfterViewInit*/ {
     componentRef.instance.mode = currentItem.data;
   
   }
-*/
+
 }
