@@ -48,15 +48,24 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void 
   {
-
+    /*
+    this.widgetTargets
+        .toArray()
+        .forEach( (target: ViewContainerRef, index) =>  
+                this.loadComponent(target, index)
+        )*/
   }
 
   ngAfterViewInit(): void
-  {
+  {/*
     this.widgetTargets.changes
         .subscribe(() => this.widgetTargets.toArray().forEach( (target: ViewContainerRef, index) =>  this.loadComponent(target, index)
-        ))
-    
+        ))*/
+        this.widgetTargets
+        .toArray()
+        .forEach( (target: ViewContainerRef, index) =>  
+                this.loadComponent(target, index) );
+
     console.log(this.tileItems);
     console.log(this._tileItems);
 

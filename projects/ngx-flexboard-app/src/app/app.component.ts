@@ -9,80 +9,7 @@ export class AppComponent {
   title = 'ngx-flexboard-app';
 
   // dashboard conf
-  public layout = {
-    "title": "uneven",
-    "rows": [
-      {
-        "rowspan": 1,
-        "tiles": [
-          {
-            "colspan": 4,
-            "size": "lg",
-            "isAuto": false,
-            "component": "TileComponent"
-          },
-          {
-            "colspan": 4,
-            "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
-          },
-          {
-            "colspan": 4,
-            "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
-          }
-        ]
-      },
-      {
-        "rowspan": 1,
-        "tiles": [
-          {
-            "colspan": 5,
-            "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
-          },
-          {
-            "colspan": 4,
-            "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
-          },
-          {
-            "colspan": 3,
-            "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
-          }
-        ]
-      },
-      {
-        "rowspan": 1,
-        "tiles": [
-          {
-            "colspan": 3,
-            "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
-          },
-          {
-            "colspan": 3,
-            "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
-          },
-          {
-            "colspan": 6,
-            "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
-          }
-        ]
-      }
-    ]
-  };
+  public layout;
 
   public layoutNested = {
     "title": "nested",
@@ -164,5 +91,82 @@ export class AppComponent {
         ]
       }
     ]
+  }
+
+  ngOnInit(): void{
+    this.layout = {
+      "title": "uneven",
+      "rows": [
+        {
+          "rowspan": 1,
+          "tiles": [
+            {
+              "colspan": 4,
+              "size": "lg",
+              "isAuto": false,
+              "component": "TileComponent"
+            },
+            {
+              "colspan": 4,
+              "size": "md",
+              "isAuto": false,
+              "component": "TileComponent"
+            },
+            {
+              "colspan": 4,
+              "size": "md",
+              "isAuto": false,
+              "component": "TileComponent"
+            }
+          ]
+        },
+        {
+          "rowspan": 1,
+          "tiles": [
+            {
+              "colspan": 5,
+              "size": "md",
+              "isAuto": false,
+              "component": "TileComponent"
+            },
+            {
+              "colspan": 4,
+              "size": "md",
+              "isAuto": false,
+              "component": "TileComponent"
+            },
+            {
+              "colspan": 3,
+              "size": "md",
+              "isAuto": false,
+              "component": "TileComponent"
+            }
+          ]
+        },
+        {
+          "rowspan": 1,
+          "tiles": [
+            {
+              "colspan": 3,
+              "size": "md",
+              "isAuto": false,
+              "component": "TileComponent"
+            },
+            {
+              "colspan": 3,
+              "size": "md",
+              "isAuto": false,
+              "component": "TileComponent"
+            },
+            {
+              "colspan": 6,
+              "size": "md",
+              "isAuto": false,
+              "component": "TileComponent"
+            }
+          ]
+        }
+      ]
+    };
   }
 }
