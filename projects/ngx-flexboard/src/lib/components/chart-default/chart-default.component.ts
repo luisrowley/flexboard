@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Chart } from 'chart.js';
 import { doughnutData, lineChartData, pieChartData } from './chart.mock';
@@ -31,7 +31,7 @@ export class ChartDefaultComponent implements OnInit {
     return this._mode.getValue();
   }
 
-  constructor() { }
+  constructor(private changeDetector: ChangeDetectorRef) { }
 
   /**
    * On component initialization
@@ -40,8 +40,8 @@ export class ChartDefaultComponent implements OnInit {
     
   }
 
-  ngAfterViewInit(){
-
+  ngAfterViewInit()
+  {
     this._mode.subscribe( mode => {
 
       const uuid = this.canvas.nativeElement.getContext('2d');
@@ -68,6 +68,8 @@ export class ChartDefaultComponent implements OnInit {
           this.renderBarChart(uuid);
           break;
       }
+      // perform change detection for component props
+      this.changeDetector.detectChanges(); 
     });
   }
 

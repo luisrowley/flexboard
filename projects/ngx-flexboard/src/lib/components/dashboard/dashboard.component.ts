@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ComponentFactoryResolver, ViewChildren, ViewContainerRef, QueryList, ViewChild, Compiler, TemplateRef, ComponentRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, ComponentFactoryResolver, ViewChildren, ViewContainerRef, QueryList, ViewChild, Compiler, TemplateRef, ComponentRef, AfterViewInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { v4 as uuidv4 } from 'uuid';
 import { DashboardLayout } from '../../models/dashboard-layout.model';
 import { COMPONENTREGISTRY } from './component.registry';
@@ -11,7 +11,8 @@ export interface TileItem {
 @Component({
   selector: 'ngx-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
 
@@ -44,7 +45,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   @ViewChildren('dynamic', { read: ViewContainerRef }) public widgetTargets: QueryList<ViewContainerRef>;
 
 
-  constructor( private componentFactoryResolver: ComponentFactoryResolver) { }
+  constructor( private componentFactoryResolver: ComponentFactoryResolver, private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit(): void 
   {
@@ -83,6 +84,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(currentItem.component);
     let componentRef: any = target.createComponent(componentFactory);
     componentRef.instance.mode = currentItem.data;
+
+    this.changeDetector.detectChanges(); 
   
   }
 
