@@ -48,14 +48,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   constructor( private componentFactoryResolver: ComponentFactoryResolver, private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit(): void 
-  {
-    /*
-    this.widgetTargets
-        .toArray()
-        .forEach( (target: ViewContainerRef, index) =>  
-                this.loadComponent(target, index)
-        )*/
-  }
+  { }
 
   ngAfterViewInit(): void
   {/*
