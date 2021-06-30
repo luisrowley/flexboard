@@ -1,7 +1,15 @@
-import { Component, OnInit, Input, ComponentFactoryResolver, ViewChildren, ViewContainerRef, QueryList, ViewChild, Compiler, TemplateRef, ComponentRef, AfterViewInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
-import { v4 as uuidv4 } from 'uuid';
+import { Component, 
+         OnInit, 
+         Input, 
+         ComponentFactoryResolver, 
+         ViewChildren, 
+         ViewContainerRef, 
+         QueryList, 
+         AfterViewInit, 
+         ChangeDetectorRef, 
+         ChangeDetectionStrategy } from '@angular/core';
+import { TILE_ITEMS } from '../../constants/tileitems';
 import { DashboardLayout } from '../../models/dashboard-layout.model';
-import { COMPONENTREGISTRY } from './component.registry';
 
 export interface TileItem {
   component: any;
@@ -22,16 +30,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
    */
   
   public _layout: DashboardLayout;
-  public _tileItems = [ {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'pie', uuid: uuidv4()}},
-                        {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'bar', uuid: uuidv4()}},
-                        {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'doughnut', uuid: uuidv4()}},
-                        {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'lines', uuid: uuidv4()}},                        
-                        {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'pie', uuid: uuidv4()}},
-                        {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'bar', uuid: uuidv4()}},
-                        {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'pie', uuid: uuidv4()}},
-                        {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'bar', uuid: uuidv4()}},
-                        {component: COMPONENTREGISTRY.getTypeFor("ChartDefaultComponent"), data: {type: 'pie', uuid: uuidv4()}}
-                      ];
+  public _tileItems = TILE_ITEMS;
                       
   // selected layout option
   @Input() set layout(layout: DashboardLayout) {
@@ -51,24 +50,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   { }
 
   ngAfterViewInit(): void
-  {/*
-    this.widgetTargets.changes
-        .subscribe(() => this.widgetTargets.toArray().forEach( (target: ViewContainerRef, index) =>  this.loadComponent(target, index)
-        ))*/
-        this.widgetTargets
-        .toArray()
-        .forEach( (target: ViewContainerRef, index) =>  
-                this.loadComponent(target, index) );
-
-    console.log(this.tileItems);
-    console.log(this._tileItems);
-
-
+  {
+    this.widgetTargets
+    .toArray()
+    .forEach( (target: ViewContainerRef, index) =>  
+            this.loadComponent(target, index) );
   }
 
   public loadComponent( target: ViewContainerRef, index: number )
-  {    
-    //let currentItemIndex = Math.floor(Math.random() * this.tileItems.length);
+  {
     let currentItem = this._tileItems[index];
 
     console.log("loadComponent target: " + this.widgetTargets.first)

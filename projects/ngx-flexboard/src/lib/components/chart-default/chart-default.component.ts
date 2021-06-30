@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } fr
 import { BehaviorSubject } from 'rxjs';
 import { Chart } from 'chart.js';
 import { doughnutData, lineChartData, pieChartData } from './chart.mock';
-import { registerComponent } from '../dashboard/component.registry';
+import { registerComponent } from '../../helpers/component.registry';
 
 @registerComponent
 @Component({
@@ -13,15 +13,14 @@ import { registerComponent } from '../dashboard/component.registry';
 export class ChartDefaultComponent implements OnInit {
 
 /**
-   * The ChartJS Object
+   * ChartJS Object
    * @var {any} chart
    */
   public chart: any;
-  // canvas element reference for instantiation
-  @ViewChild('canvas', {static: false}) canvas: ElementRef; // <- consider changing to {static: true} and moving to ngOnInit
+  // canvas element ref
+  @ViewChild('canvas', {static: false}) canvas: ElementRef;
   // local asynchronous chart config data
   private _mode = new BehaviorSubject<any>({});
-  
   // chart mode setter input property
   @Input() set mode(data: any){
       this._mode.next(data);

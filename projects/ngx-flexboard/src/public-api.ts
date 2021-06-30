@@ -1,7 +1,7 @@
 /*
  * Public API Surface of ngx-flexboard
  */
-export * from './lib/components/dashboard/component.registry';
+export * from './lib/helpers/component.registry';
 export * from './lib/components/chart-default/chart-default.component';
 export * from './lib/components/chart-default/chart-default.module';
 
