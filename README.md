@@ -2,6 +2,8 @@
 
 Dynamic grid layout generator component for Angular environments.
 
+**How so?** Flexboard lets you generate different grid configurations on the fly via JSON input (more on that below).
+
 ## Demo
 
 ### Simple grid structure
