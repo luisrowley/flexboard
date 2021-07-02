@@ -7,7 +7,7 @@ import { Component,
          AfterViewInit,
          ChangeDetectorRef,
          ChangeDetectionStrategy } from '@angular/core';
-import { TileItem } from '../../models/tileitem';
+import { TileItem, TileItemDescriptor } from '../../models/tileitem';
 import { TILE_ITEMS } from '../../constants/tileitems';
 import { DashboardLayout } from '../../models/dashboard-layout.model';
 
@@ -22,7 +22,7 @@ export class DashboardComponent implements AfterViewInit {
   public _layout: DashboardLayout;
   public _tileItems: TileItem[] = TILE_ITEMS;
                       
-  @Input() tileItems: TileItem[];
+  @Input() tileItems: TileItemDescriptor[];
   @Input() set layout(layout: DashboardLayout) {
     this._layout = layout;
   }
@@ -51,5 +51,4 @@ export class DashboardComponent implements AfterViewInit {
 
     this.changeDetector.detectChanges(); 
   }
-
 }
