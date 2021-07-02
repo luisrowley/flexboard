@@ -31,8 +31,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   // load all the ViewContainerRef targets by id
   @ViewChildren('dynamic', { read: ViewContainerRef }) public widgetTargets: QueryList<ViewContainerRef>;
 
-  constructor( private componentFactoryResolver: ComponentFactoryResolver, private changeDetector: ChangeDetectorRef)
-  { }
+  constructor( 
+    private componentFactoryResolver: ComponentFactoryResolver, 
+    private changeDetector: ChangeDetectorRef
+  ){ }
 
   ngOnInit(): void 
   {
