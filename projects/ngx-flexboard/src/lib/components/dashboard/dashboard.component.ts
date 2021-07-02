@@ -73,6 +73,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     let componentRef: any = target.createComponent(componentFactory);
     componentRef.instance.mode = currentItem.data;
 
+    console.log(componentRef.instance.mode);
+
     this.changeDetector.detectChanges(); 
   }
 }

@@ -9,6 +9,11 @@ import { TILE_ITEMS } from './constants/tileitems.mock';
 })
 export class AppComponent {
 
-  public layout = unevenLayout;
-  public tileItems = TILE_ITEMS;
+  public layout;
+  public tileItems;
+
+  ngOnInit(){
+    this.layout = unevenLayout;
+    this.tileItems = TILE_ITEMS;
+  }
 }
