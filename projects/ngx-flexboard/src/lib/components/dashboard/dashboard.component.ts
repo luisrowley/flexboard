@@ -1,12 +1,11 @@
-import { Component, 
-         OnInit, 
-         Input, 
-         ComponentFactoryResolver, 
-         ViewChildren, 
-         ViewContainerRef, 
-         QueryList, 
-         AfterViewInit, 
-         ChangeDetectorRef, 
+import { Component,
+         Input,
+         ComponentFactoryResolver,
+         ViewChildren,
+         ViewContainerRef,
+         QueryList,
+         AfterViewInit,
+         ChangeDetectorRef,
          ChangeDetectionStrategy } from '@angular/core';
 import { TileItem } from 'ngx-flexboard/lib/models/tileitem';
 import { TILE_ITEMS } from '../../constants/tileitems';
