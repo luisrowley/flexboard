@@ -29,7 +29,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   // load all the ViewContainerRef targets by id
-  @ViewChildren('dynamic', { read: ViewContainerRef }) public widgetTargets: QueryList<ViewContainerRef>;
+  @ViewChildren('dynamic', { read: ViewContainerRef }) 
+  public widgetTargets: QueryList<ViewContainerRef>;
 
   constructor( 
     private componentFactoryResolver: ComponentFactoryResolver, 
@@ -38,7 +39,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void 
   {
-    this.resetTileItems();
     this.generateTileItems();
   }
 
@@ -51,20 +51,16 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     });
   }
 
-  private resetTileItems(): void
-  {
-    this._tileItems = [];
-  }
-
   private generateTileItems(): void
   {
     if(this.tileItems)
     {
-      this.tileItems.forEach( item => 
-        this._tileItems.push(
-            {component: COMPONENTREGISTRY.getTypeFor(item.className), data: item.data} 
-          )
-        );
+      this._tileItems = this.tileItems.map(item => {
+        return {
+          component: COMPONENTREGISTRY.getTypeFor(item.className), 
+          data: item.data
+        }
+      })
     }
   }
 

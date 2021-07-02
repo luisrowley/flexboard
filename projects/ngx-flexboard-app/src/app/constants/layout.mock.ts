@@ -7,20 +7,14 @@ export const unevenLayout = {
           {
             "colspan": 4,
             "size": "lg",
-            "isAuto": false,
-            "component": "TileComponent"
           },
           {
             "colspan": 4,
             "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
           },
           {
             "colspan": 4,
             "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
           }
         ]
       },
@@ -30,20 +24,14 @@ export const unevenLayout = {
           {
             "colspan": 5,
             "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
           },
           {
             "colspan": 4,
             "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
           },
           {
             "colspan": 3,
             "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
           }
         ]
       },
@@ -53,20 +41,14 @@ export const unevenLayout = {
           {
             "colspan": 3,
             "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
           },
           {
             "colspan": 3,
             "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
           },
           {
             "colspan": 6,
             "size": "md",
-            "isAuto": false,
-            "component": "TileComponent"
           }
         ]
       }

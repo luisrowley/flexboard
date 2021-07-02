@@ -18,9 +18,11 @@ Simply adding it as a node dependency by runnning:
 npm install --save ngx-flexboard
 ```
 
-## Usage
+## Sample layout configuration
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Sample tile configuration
 
 ## Build
 
