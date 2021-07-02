@@ -1,12 +1,22 @@
 # Flexboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+Dynamic grid layout generator component for Angular environments.
 
-## Development server
+## Demo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Simple grid structure
 
-## Code scaffolding
+![simple grid](projects/ngx-flexboard-app/src/assets/Flexboard-demo-beta-2.png)
+
+## Installation
+
+Simply adding it as a node dependency by runnning:
+
+```bash
+npm install --save ngx-flexboard
+```
+
+## Usage
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
