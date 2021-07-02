@@ -8,13 +8,9 @@ import { Component,
          AfterViewInit, 
          ChangeDetectorRef, 
          ChangeDetectionStrategy } from '@angular/core';
+import { TileItem } from 'ngx-flexboard/lib/models/tileitem';
 import { TILE_ITEMS } from '../../constants/tileitems';
 import { DashboardLayout } from '../../models/dashboard-layout.model';
-
-export interface TileItem {
-  component: any;
-  data?: any;
-}
 
 @Component({
   selector: 'ngx-dashboard',
@@ -30,7 +26,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
    */
   
   public _layout: DashboardLayout;
-  public _tileItems = TILE_ITEMS;
+  public _tileItems: TileItem[] = TILE_ITEMS;
                       
   // selected layout option
   @Input() set layout(layout: DashboardLayout) {
