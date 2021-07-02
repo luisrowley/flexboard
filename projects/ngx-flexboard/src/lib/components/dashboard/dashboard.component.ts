@@ -7,7 +7,7 @@ import { Component,
          AfterViewInit,
          ChangeDetectorRef,
          ChangeDetectionStrategy } from '@angular/core';
-import { TileItem } from 'ngx-flexboard/lib/models/tileitem';
+import { TileItem } from '../../models/tileitem';
 import { TILE_ITEMS } from '../../constants/tileitems';
 import { DashboardLayout } from '../../models/dashboard-layout.model';
 
