@@ -6,10 +6,11 @@ import { Component,
          QueryList,
          AfterViewInit,
          ChangeDetectorRef,
-         ChangeDetectionStrategy } from '@angular/core';
+         ChangeDetectionStrategy, 
+         OnInit} from '@angular/core';
 import { TileItem, TileItemDescriptor } from '../../models/tileitem';
-import { TILE_ITEMS } from '../../constants/tileitems';
 import { DashboardLayout } from '../../models/dashboard-layout.model';
+import { COMPONENTREGISTRY } from '../../helpers/component.registry';
 
 @Component({
   selector: 'ngx-dashboard',
@@ -17,10 +18,10 @@ import { DashboardLayout } from '../../models/dashboard-layout.model';
   styleUrls: ['./dashboard.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DashboardComponent implements AfterViewInit {
+export class DashboardComponent implements OnInit, AfterViewInit {
 
   public _layout: DashboardLayout;
-  public _tileItems: TileItem[] = TILE_ITEMS;
+  public _tileItems: TileItem[];
                       
   @Input() tileItems: TileItemDescriptor[];
   @Input() set layout(layout: DashboardLayout) {
@@ -33,17 +34,42 @@ export class DashboardComponent implements AfterViewInit {
   constructor( private componentFactoryResolver: ComponentFactoryResolver, private changeDetector: ChangeDetectorRef)
   { }
 
+  ngOnInit(): void 
+  {
+    this.resetTileItems();
+    this.generateTileItems();
+  }
+
   ngAfterViewInit(): void
   {
     this.widgetTargets
     .toArray()
-    .forEach( (target: ViewContainerRef, index) =>  
-            this.loadComponent(target, index) );
+    .forEach( (target: ViewContainerRef, index) => {
+        this.loadComponent(target, index);
+    });
   }
 
-  public loadComponent( target: ViewContainerRef, index: number )
+  private resetTileItems(): void
   {
-    let currentItem = this._tileItems[index];    
+    this._tileItems = [];
+  }
+
+  private generateTileItems(): void
+  {
+    if(this.tileItems)
+    {
+      this.tileItems.forEach( item => 
+        this._tileItems.push(
+            {component: COMPONENTREGISTRY.getTypeFor(item.className), data: item.data} 
+          )
+        );
+    }
+  }
+
+  private loadComponent( target: ViewContainerRef, index: number )
+  {
+    let currentItem = this._tileItems[index];
+    console.log(index, currentItem);
 
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(currentItem.component);
     let componentRef: any = target.createComponent(componentFactory);
