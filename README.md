@@ -50,6 +50,12 @@ npm run start
 
 In browser, go to `http://localhost:4200/` as usual.
 
+## Usage
+
+```html
+<ngx-dashboard [layout]="layout" [tileItems]="tileItems"></ngx-dashboard>
+```
+
 ## Sample layout configuration
 
 You can easily define an array of `rows` with its corresponding columns or `tiles`. Each row element can host multiple tiles as per the following example:
