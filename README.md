@@ -61,7 +61,7 @@ In browser, go to `http://localhost:4200/` as usual.
 You can easily define an array of `rows` with its corresponding columns or `tiles`. Each row element can host multiple tiles as per the following example:
 
 ```typescript
-const unevenLayout = {
+const layout = {
     "title": "uneven",
     "rows": [
       {
@@ -129,7 +129,7 @@ For more complex scenarios in which you need a more irregular grid structure, yo
 This schema allows you to also create nested rows if needed. For this setup you would need to add a nested `"rows"` array inside a `tile` element:
 
 ```typescript
-const nestedLayout = {
+const layout = {
     "title": "nested",
     "rows": [
         {
@@ -212,7 +212,7 @@ With the first propery being the component `class name` and second the optional 
 The following would be a sample configuration:
 
 ```typescript
-const TILE_ITEMS = [
+const tileItems = [
 {className: "ChartDefaultComponent", data: {type: 'bar'}},
 {className: "ChartDefaultComponent", data: {type: 'pie'}},
 {className: "ChartDefaultComponent", data: {type: 'doughnut'}},
