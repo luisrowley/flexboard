@@ -45,6 +45,7 @@ export class ChartDefaultComponent implements OnInit {
 
       const uuid = this.canvas.nativeElement.getContext('2d');
     
+      console.log(mode.type)
       switch(mode.type)
       {
         case 'bar':

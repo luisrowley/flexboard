@@ -64,16 +64,13 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private loadComponent( target: ViewContainerRef, index: number )
+  private loadComponent(target: ViewContainerRef, index: number)
   {
     let currentItem = this._tileItems[index];
-    console.log(index, currentItem);
 
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(currentItem.component);
     let componentRef: any = target.createComponent(componentFactory);
     componentRef.instance.mode = currentItem.data;
-
-    console.log(componentRef.instance.mode);
 
     this.changeDetector.detectChanges(); 
   }
